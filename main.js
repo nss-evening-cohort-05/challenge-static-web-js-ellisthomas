@@ -21,6 +21,11 @@
 	var button = document.getElementById("myButton");
 	var treeSpace = "";
 	var tree = "";
+
+	var treeArray = {
+  		height: treeHeight.value,
+  		character: treeChar.value
+};
   		
 
 	button.addEventListener("click", userInput);
@@ -34,16 +39,14 @@
   	} 
 }
 
-	function clickEvent(keypress){
-		if (keypress.keyCode === 13) {
-			growTree();
+	window.addEventListener("enter", clickEvent);
+	function clickEvent(e){
+		if (e.keyCode === 13) {
+			userInput();
 	}
 }
 
-	var treeArray = {
-  		height: treeHeight.value,
-  		character: treeChar.value
-};
+	
 
 // Grow tree function
 
