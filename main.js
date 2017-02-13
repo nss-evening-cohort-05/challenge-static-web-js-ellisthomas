@@ -20,6 +20,8 @@
 
 	var button = document.getElementById("myButton");
 	var treeSpace = "";
+	var tree = "";
+  		
 
 	button.addEventListener("click", userInput);
 	document.getElementById("myButton").addEventListener("click", growTree);
@@ -30,7 +32,6 @@
   		} else if (treeArray.character === "") {
     alert("Please enter character");
   	} 
-  	growTree(treeArray);
 }
 
 	function clickEvent(keypress){
@@ -50,11 +51,6 @@
  		treeArray.character = document.getElementById("character").value;
 		treeArray.height = document.getElementById("height").value;
 
-
-  	var tree = "";
-  		console.log(treeArray);
-  		console.log(treeArray.height);
-
 //do math on user input
 
   	 for (var i = 0; i < treeArray.height; i++) {
@@ -70,7 +66,7 @@
   			treeSpace += treeArray.character;
   		}
   	console.log(treeSpace);
-  //clear treeString after each loop
+  //clear treeSpace after each loop
   treeSpace = "";
   }
 }
