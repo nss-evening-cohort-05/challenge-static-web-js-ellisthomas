@@ -1,17 +1,17 @@
 var treeSpace = "";
 var treeArray = {};
-  		
+      
 document.getElementById("myButton").addEventListener("click", growTree);
 
 window.addEventListener("keyup", function(e){
-	if (e.keyCode == 13) {
+  if (e.keyCode == 13) {
     document.getElementById("myButton").click();
-	}
+  }
 });
 
 function growTree(treeArray) {
-	treeArray.character = document.getElementById("character").value;
-	treeArray.height = document.getElementById("height").value;
+  treeArray.character = document.getElementById("character").value;
+  treeArray.height = document.getElementById("height").value;
 
   if (treeArray.height == "") {
     alert("Please enter height");
