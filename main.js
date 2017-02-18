@@ -15,36 +15,28 @@
 // If either of the input fields does not have a value in it when the user presses the enter key, or presses the button, then display an alert stating that both fields must have a value.
  	
  // Get user data
- 	var treeChar = document.getElementById("character").value;
-	var treeHeight = document.getElementById("height").value;
+//  	var treeChar = document.getElementById("character").value;
+// 	var treeHeight = document.getElementById("height").value;
 
-	var button = document.getElementById("myButton");
+// 	var button = document.getElementById("myButton");
 	var treeSpace = "";
-	var tree = "";
+	// var tree = "";
 
-	var treeArray = {
-  		height: treeHeight.value,
-  		character: treeChar.value
-};
+// 	var treeArray = {
+//   		height: treeHeight.value,
+//   		character: treeChar.value
+// };
   		
 
-	button.addEventListener("click", userInput);
 	document.getElementById("myButton").addEventListener("click", growTree);
 
-	function userInput() {
-  		if (treeArray.height === "") {
-    alert("Please enter height");
-  		} else if (treeArray.character === "") {
-    alert("Please enter character");
-  	} 
-}
+	
 
-	window.addEventListener("enter", clickEvent);
-	function clickEvent(e){
-		if (e.keyCode === 13) {
-			userInput();
+	window.addEventListener("keyup", function(e){
+		if (e.keyCode == 13) {
+      document.getElementById("myButton").click();
 	}
-}
+});
 
 	
 
@@ -54,25 +46,32 @@
  		treeArray.character = document.getElementById("character").value;
 		treeArray.height = document.getElementById("height").value;
 
+    if (treeArray.height == "") {
+        alert("Please enter height");
+    } else if (treeArray.character == "") {
+        alert("Please enter character");
+      } else {
+          for (var i = 0; i < treeArray.height; i++) {
+            var char = 2 * i + 1;
+            var space = treeArray.height - (i + 1);
+    
+            for (var j = 0; j < space; j++) {
+              treeSpace += " ";
+            }
+      
+            for (var k = 0; k < char; k++) {
+              treeSpace += treeArray.character;
+            }
+          
+            console.log(treeSpace);
+            treeSpace = "";
+          }
+        }
+  }
+
 //do math on user input
 
-  	 for (var i = 0; i < treeArray.height; i++) {
-    	var char = 2 * i + 1;
-   		var space = treeArray.height - (i + 1);
   	
-//add spaces to space variable
-
-  	for (var j = 0; j < space; j++) {
-  		treeSpace += " ";
-  	}
-  	  	for (var k = 0; k < char; k++) {
-  			treeSpace += treeArray.character;
-  		}
-  	console.log(treeSpace);
-  //clear treeSpace after each loop
-  treeSpace = "";
-  }
-}
  	
 
 
